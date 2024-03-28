@@ -1,11 +1,22 @@
 "use client";
-export default function PointerGlow() {
+
+import { UserStatus } from "@/enums/enums";
+
+
+type InfoProps = {
+    userStatus: UserStatus;
+};
+const PointerGlow: React.FC<InfoProps> = ({ userStatus }) => {
+
+
+    const loggingIn = userStatus === UserStatus.LoggingIn;
+    const loggedIn = userStatus === UserStatus.LoggedIn;
     if (typeof document !== "undefined") {
         const blob = document.getElementById("blob");
 
         window.onpointermove = (event: any) => {
             const { clientX, clientY } = event;
-            console.log(clientX, clientY);
+
             if (blob != null) {
                 blob.animate(
                     {
@@ -21,14 +32,15 @@ export default function PointerGlow() {
         <>
             <div
                 id={"blob"}
-                className="bg-white h-[32vmax] aspect-square absolute inset-0 -translate-x-1/2 -translate-y-1/2 z-10
+                className="bg-white h-[32vmax] aspect-square absolute inset-0 -translate-x-1/2 -translate-y-1/2 z-0
           rounded-3xl bg-gradient-to-r from-orange-500 to-purple-500 animate-rotating-light"
             />
 
             <div
                 id="blur"
-                className="h-full w-full absolute z-20 backdrop-blur-[12vmax]"
+                className={`h-full w-full absolute z-10 backdrop-blur-[12vmax]`}
             />
         </>
     );
 }
+export default PointerGlow;

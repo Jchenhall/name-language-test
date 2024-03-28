@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { WordFlip } from "./wordFlip";
+import { WordFlip } from "../WordFlip";
 
 
 
@@ -7,7 +7,7 @@ type FadeProp = { fade: 'fade-in' | 'fade-out' }
 
 const FadingText = () => {
 
-    const myName = 'Jack'
+    const myName = 'Jack Chenhall'
     const korean = `안녕하세요! 제 `
     const chinese = `你好！我的名字是 `
     const spanish = `¡HOLA! MI NOMBRE ES `
@@ -39,19 +39,18 @@ const FadingText = () => {
     }, [])
 
     return (
-        <div className=" text-7xl font-mono z-40 whitespace-nowrap absolute mx-auto my-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-transform: uppercase ">
-            <div className="inline-flex flex-row relative w-full">
-                <h1 className={fadeProp.fade}>
+        <div className=" text-7xl font-mono z-40 whitespace-nowrap absolute mx-auto my-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-transform: uppercase w-full ">
+            <div className="inline-flex min-w-full flex-row relative ">
+                <h1 className={`flex w-1/2 justify-end ${fadeProp.fade}`}>
                     {WORDS_TO_ANIMATE[wordOrder]}
                 </h1>
                 <h1
                     onMouseOver={WordFlip}
-                    className={`text-orange-400 pl-10 pr-10  ${fadeProp.fade}`}
+                    className={`flex w- 1/2 justify-start text-orange-400 pl-10 pr-10  `}
                     data-value={myName}
                 >
                     {myName}
                 </h1>
-
                 <h1 className={fadeProp.fade}>{WORDS_TO_ANIMATE[wordOrder] === WORDS_TO_ANIMATE[6] ? 'है।' : null}</h1>
                 <h1 className={fadeProp.fade}>{WORDS_TO_ANIMATE[wordOrder] === WORDS_TO_ANIMATE[1] ? '이름은' : null}</h1>
             </div>
