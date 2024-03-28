@@ -1,13 +1,8 @@
-"use client";
-import { UserStatus } from "@/enums/enums";
 import Time from "./InfoComponents/Time";
 
-type InfoProps = {
-  userStatus: UserStatus;
-};
-export const Info: React.FC<InfoProps> = ({ userStatus }) => {
+export const Info = () => {
   return (
-    <div className="flex items-end z-40">
+    <div className="">
       <Time />
     </div>
   );

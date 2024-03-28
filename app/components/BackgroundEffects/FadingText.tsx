@@ -1,7 +1,6 @@
+'use client'
 import React, { useEffect, useState } from "react";
-import { WordFlip } from "../WordFlip";
-
-
+import { WordFlip } from "../wordFlip";
 
 type FadeProp = { fade: 'fade-in' | 'fade-out' }
 

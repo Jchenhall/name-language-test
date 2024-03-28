@@ -1,16 +1,11 @@
 "use client";
 
-import { UserStatus } from "@/enums/enums";
 
 
-type InfoProps = {
-    userStatus: UserStatus;
-};
-const PointerGlow: React.FC<InfoProps> = ({ userStatus }) => {
 
 
-    const loggingIn = userStatus === UserStatus.LoggingIn;
-    const loggedIn = userStatus === UserStatus.LoggedIn;
+const PointerGlow = () => {
+  
     if (typeof document !== "undefined") {
         const blob = document.getElementById("blob");
 
